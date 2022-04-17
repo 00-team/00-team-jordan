@@ -22,10 +22,10 @@ const Config: Configuration = {
         rules: [
             ...Base.module!.rules!,
             DevStyle,
-            // {
-            //     test: /\.(mp4|ico)$/i,
-            //     use: 'file-loader',
-            // },
+            {
+                test: /\.(mp4|ico)$/i,
+                use: 'file-loader',
+            },
         ],
     },
     plugins: [

@@ -2,15 +2,18 @@ import { Configuration } from 'webpack'
 import Base from './base'
 
 // path
-import { resolve, SRC_DIR, LIB_DIR } from './config/path'
+import { SRC_DIR, LIB_DIR } from './config/path'
 
 // style
 import { BuildStyle } from './config/style'
 
+// plugins
+// import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer'
+
 const Config: Configuration = {
     ...Base,
     mode: 'production',
-    entry: resolve(SRC_DIR, 'index.ts'),
+    entry: SRC_DIR,
     output: {
         path: LIB_DIR,
         clean: true,
@@ -26,6 +29,9 @@ const Config: Configuration = {
     externals: {
         react: 'react',
     },
+    plugins: [
+        // new BundleAnalyzerPlugin()
+    ],
     optimization: {
         minimize: true,
         emitOnErrors: false,
