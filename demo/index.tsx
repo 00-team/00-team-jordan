@@ -5,14 +5,18 @@ import { createRoot } from 'react-dom/client'
 import './style.scss'
 
 // player
-import { Player } from '../lib'
+import { Player, Source } from '../lib/'
 
-import demo from './demo.mp4'
+import green from './videos/green.mp4'
+import red from './videos/red.mp4'
+import blue from './videos/blue.mp4'
+
+const source: Source = [green, red, blue]
 
 const App: FC = () => {
     return (
         <div className='app'>
-            <Player src={demo} />
+            <Player source={source} />
         </div>
     )
 }
