@@ -1,2 +1,3 @@
-# 00-team-jordan
-npm package - @00-team/jordan
+# Vito
+
+npm package - @00-team/vito

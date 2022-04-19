@@ -20,7 +20,7 @@ const Config: Configuration = {
         filename: 'index.js',
         sourceMapFilename: 'source_maps/[file].map',
         library: {
-            name: '@00-team/jordan',
+            name: '@00-team/vito',
             type: 'umd',
             umdNamedDefine: true,
         },
