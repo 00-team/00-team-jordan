@@ -1,4 +1,4 @@
-import React, { FC, PureComponent, ReactElement } from 'react'
+import React, { PureComponent, ReactElement } from 'react'
 
 // utils
 import { ConvertSource, GetMainSource } from './utils'
@@ -6,8 +6,8 @@ import { ConvertSource, GetMainSource } from './utils'
 // types
 import { Source, Options, SourceObject, SourceObjectList } from './types'
 
-// context
-import { PlayerContext } from './context'
+// tree
+import PlayerTree from './PlayerTree'
 
 interface PlayerProps {
     source: Source
@@ -50,33 +50,6 @@ class Player extends PureComponent<PlayerProps, PlayerState> {
             </div>
         )
     }
-}
-
-interface PlayerTreeProps extends PlayerState {
-    changeSource: (s: SourceObject) => void
-}
-
-const PlayerTree: FC<PlayerTreeProps> = props => {
-    const { video, vito, options, source, sources } = props
-    const { changeSource } = props
-
-    if (video && vito && source && sources)
-        return (
-            <PlayerContext.Provider
-                value={{
-                    video,
-                    vito,
-                    options,
-                    source,
-                    sources,
-                    changeSource,
-                }}
-            >
-                <div>test</div>
-            </PlayerContext.Provider>
-        )
-
-    return <></>
 }
 
 export default Player
