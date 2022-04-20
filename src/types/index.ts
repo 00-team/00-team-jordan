@@ -4,9 +4,10 @@ interface SourceObject {
 }
 
 type SourceItem = SourceObject | string
+type SourceObjectList = [SourceObject, ...SourceObject[]]
 type Source = SourceItem | [SourceItem, ...SourceItem[]]
 
-export { Source, SourceObject, SourceItem }
+export { Source, SourceObject, SourceItem, SourceObjectList }
 
 interface Options {
     className?: string

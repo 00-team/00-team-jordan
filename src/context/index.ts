@@ -1,12 +1,14 @@
 import { createContext } from 'react'
 
-import { Options, Source } from '../types'
+import { Options, SourceObject, SourceObjectList } from '../types'
 
 interface PlayerContextType {
     video: HTMLVideoElement
-    master: HTMLDivElement
+    vito: HTMLDivElement
     options?: Options
-    source: Source
+    sources: SourceObjectList
+    source: SourceObject // Current Source
+    changeSource: (s: SourceObject) => void
 }
 
 const PlayerContext = createContext<PlayerContextType>({} as PlayerContextType)
