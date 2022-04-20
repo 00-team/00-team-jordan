@@ -2,7 +2,7 @@ import { Configuration } from 'webpack'
 import Base from './base'
 
 // path
-import { SRC_DIR, LIB_DIR } from './config/path'
+import { SRC_DIR, LIB_DIR, resolve } from './config/path'
 
 // style
 import { BuildStyle } from './config/style'
@@ -32,6 +32,13 @@ const Config: Configuration = {
     plugins: [
         // new BundleAnalyzerPlugin()
     ],
+    resolve: {
+        ...Base.resolve!,
+        alias: {
+            components: resolve(SRC_DIR, 'components'),
+            utils: resolve(SRC_DIR, 'utils'),
+        },
+    },
     optimization: {
         minimize: true,
         emitOnErrors: false,
