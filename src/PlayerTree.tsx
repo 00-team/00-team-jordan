@@ -5,6 +5,7 @@ import { SourceObject, SourceObjectList, Options } from './types'
 
 // components
 import Time from 'components/timeline/Time'
+import Play from 'components/actions/Play'
 
 // context
 import { PlayerContext } from './context'
@@ -35,6 +36,7 @@ const PlayerTree: FC<PlayerTreeProps> = props => {
                 }}
             >
                 <Time type='passed' /> / <Time type='remaining' />
+                <Play />
             </PlayerContext.Provider>
         )
 
