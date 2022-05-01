@@ -1,3 +1,5 @@
+@use '@00-team/utils' as *;
+
 .vito-player {
     &,
     * {
@@ -7,4 +9,16 @@
     }
 
     contain: layout;
+    position: relative;
+    @include war(100%, #{16/9});
+    @include f-center;
+    @include no-user-select;
+
+    .main-video {
+        @include box(100%);
+        position: absolute;
+        z-index: 0;
+    }
 }
+
+// layout depths = video(0) -> touch(1) -> controls(2)
