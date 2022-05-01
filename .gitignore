@@ -105,3 +105,6 @@ dist
 
 # ignore lib
 lib/
+
+# ingoring the .svg icons
+src/icons/*.svg
