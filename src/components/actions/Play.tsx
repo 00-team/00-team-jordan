@@ -1,5 +1,5 @@
 import React, { ReactElement } from 'react'
-import BaseComponent from '../BaseComponent'
+import BaseComponent from 'BaseComponent'
 
 // icons
 import Icon from 'icons/play'
