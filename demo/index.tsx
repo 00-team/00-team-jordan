@@ -5,7 +5,7 @@ import { createRoot } from 'react-dom/client'
 import './style.scss'
 
 // player
-import { Player, Source } from '../lib/'
+import { Player, Source } from '..'
 
 import green from './videos/green.mp4'
 import red from './videos/red.mp4'
