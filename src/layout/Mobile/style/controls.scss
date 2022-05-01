@@ -1,0 +1,9 @@
+@use '@00-team/utils' as *;
+
+.vito-player .mobile-layout .controls {
+    position: absolute;
+    z-index: 2;
+    background-color: #f00;
+    @include box(100%);
+    @include f-center;
+}
