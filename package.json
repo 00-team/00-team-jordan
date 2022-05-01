@@ -39,6 +39,7 @@
         ]
     },
     "devDependencies": {
+        "@00-team/utils": "^0.1.7",
         "@types/react": "^18.0.5",
         "@types/react-dom": "^18.0.1",
         "@types/webpack-bundle-analyzer": "^4.4.1",
