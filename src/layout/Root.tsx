@@ -1,16 +1,15 @@
 import React, { FC } from 'react'
 
 // types
-import { SourceObject, SourceObjectList, Options } from './types'
+import { SourceObject, SourceObjectList, Options } from '../types'
 
-// components
-import Time from 'components/timeline/Time'
-import Play from 'components/actions/Play'
+// layouts
+import Mobile from './Mobile'
 
 // context
-import { PlayerContext } from './context'
+import { PlayerContext } from '../context'
 
-interface PlayerTreeProps {
+interface RootProps {
     video?: HTMLVideoElement
     vito?: HTMLDivElement
     options?: Options
@@ -19,7 +18,7 @@ interface PlayerTreeProps {
     changeSource: (s: SourceObject) => void
 }
 
-const PlayerTree: FC<PlayerTreeProps> = props => {
+const Root: FC<RootProps> = props => {
     const { video, vito, options, source, sources } = props
     const { changeSource } = props
 
@@ -35,12 +34,11 @@ const PlayerTree: FC<PlayerTreeProps> = props => {
                     changeSource,
                 }}
             >
-                <Time type='passed' /> / <Time type='remaining' />
-                <Play />
+                <Mobile />
             </PlayerContext.Provider>
         )
 
     return <></>
 }
 
-export default PlayerTree
+export default Root

@@ -7,7 +7,10 @@ import { ConvertSource, GetMainSource } from './utils'
 import { Source, Options, SourceObject, SourceObjectList } from './types'
 
 // tree
-import PlayerTree from './PlayerTree'
+import RootLayout from './layout/Root'
+
+// style
+import './style/player.scss'
 
 interface PlayerProps {
     source: Source
@@ -43,10 +46,9 @@ class Player extends PureComponent<PlayerProps, PlayerState> {
             >
                 <video
                     src={this.state.source.url}
-                    controls
                     ref={node => node && this.setState({ video: node })}
                 />
-                <PlayerTree changeSource={this.changeSource} {...this.state} />
+                <RootLayout changeSource={this.changeSource} {...this.state} />
             </div>
         )
     }
