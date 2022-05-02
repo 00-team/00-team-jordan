@@ -1,3 +1,5 @@
+@use '@00-team/utils' as *;
+
 * {
     box-sizing: border-box;
     margin: 0;
@@ -13,7 +15,13 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 100%;
-    height: 100vh;
-    padding: 20%;
+    @include box(100%, 100vh);
+    padding: 10rem;
+
+    .app-video {
+        @include war(100%, #{16/9});
+        border: 2px solid #222;
+        border-radius: 5px;
+        overflow: hidden;
+    }
 }
