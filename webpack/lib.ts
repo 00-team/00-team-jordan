@@ -38,6 +38,7 @@ const Config: Configuration = {
             components: resolve(SRC_DIR, 'components'),
             utils: resolve(SRC_DIR, 'utils'),
             icons: resolve(SRC_DIR, 'icons'),
+            BaseComponent: resolve(SRC_DIR, 'BaseComponent'),
         },
     },
     optimization: {
