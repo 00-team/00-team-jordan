@@ -10,7 +10,7 @@
 
     contain: layout;
     position: relative;
-    @include war(100%, #{16/9});
+    @include box(100%);
     @include f-center;
     @include no-user-select;
 
@@ -18,6 +18,11 @@
         @include box(100%);
         position: absolute;
         z-index: 0;
+    }
+
+    button svg {
+        @include box(100%);
+        color: #f2f2f2;
     }
 }
 
