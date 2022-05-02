@@ -11,7 +11,7 @@ class Touch extends PureComponent<TouchProps, TouchState> {
     override state: TouchState = {}
 
     override render(): ReactElement {
-        return <div className='touch'>touch</div>
+        return <div className='touch'></div>
     }
 }
 

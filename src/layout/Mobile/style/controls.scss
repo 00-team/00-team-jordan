@@ -3,7 +3,39 @@
 .vito-player .mobile-layout .controls {
     position: absolute;
     z-index: 2;
-    background-color: #f00;
+
     @include box(100%);
-    @include f-center;
+    display: flex;
+    flex-direction: column;
+
+    .page {
+        width: 100%;
+        height: calc(100% / 3);
+
+        &-1 {
+            // background-color: green;
+        }
+        &-2 {
+            // background-color: brown;
+            @include f-center;
+            column-gap: 5%;
+
+            button {
+                height: 60%;
+            }
+
+            .loading {
+                height: 60%;
+            }
+        }
+        &-3 {
+            // background-color: orange;
+        }
+
+        button {
+            cursor: pointer;
+            background-color: transparent;
+            border: none;
+        }
+    }
 }

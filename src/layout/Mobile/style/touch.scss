@@ -3,7 +3,7 @@
 .vito-player .mobile-layout .touch {
     position: absolute;
     z-index: 1;
-    background-color: #0ff;
+    // background-color: #0ff;
     @include box(100%);
     @include f-center;
 }
