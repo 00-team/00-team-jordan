@@ -22,14 +22,14 @@ class TogglePPL extends BaseComponent<TogglePPLProps, TogglePPLState> {
         isLoading: true,
     }
 
-    private UpdateIsPlaying = this.UpdateIsPlayingPr.bind(this)
-    private UpdateIsPlayingPr() {
+    private UpdateIsPlaying = this.UpdateIsPlayingPR.bind(this)
+    private UpdateIsPlayingPR() {
         this.setState({ isPlaying: !this.video.paused })
-        this.UpdateIsLoadingPr()
+        this.UpdateIsLoadingPR()
     }
 
-    private UpdateIsLoading = this.UpdateIsLoadingPr.bind(this)
-    private UpdateIsLoadingPr() {
+    private UpdateIsLoading = this.UpdateIsLoadingPR.bind(this)
+    private UpdateIsLoadingPR() {
         if (this.video.readyState === 4) this.setState({ isLoading: false })
         else this.setState({ isLoading: true })
     }

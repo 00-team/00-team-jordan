@@ -12,10 +12,10 @@
         width: 100%;
         height: calc(100% / 3);
 
-        &-1 {
+        &__1 {
             // background-color: green;
         }
-        &-2 {
+        &__2 {
             // background-color: brown;
             @include f-center;
             column-gap: 5%;
@@ -28,14 +28,46 @@
                 height: 60%;
             }
         }
-        &-3 {
-            // background-color: orange;
+        &__3 {
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+
+            .section {
+                @include box(100%, 40%);
+
+                &__1 {
+                    padding: 1rem;
+                    display: flex;
+                    align-items: flex-end;
+                    justify-content: space-between;
+
+                    .time {
+                        background-color: red;
+                        font-size: 20px;
+                        font-family: sans-serif;
+                    }
+
+                    button {
+                        height: 60%;
+
+                        svg {
+                            color: #000;
+                        }
+                    }
+                }
+
+                &__2 {
+                    background-color: darkcyan;
+                }
+            }
         }
 
         button {
             cursor: pointer;
             background-color: transparent;
             border: none;
+            display: flex;
         }
     }
 }
