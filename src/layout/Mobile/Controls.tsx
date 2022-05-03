@@ -9,6 +9,7 @@ import TogglePPL from './TogglePPL'
 import Time from 'components/timeline/Time'
 import Duration from 'components/timeline/Duration'
 import FullScreen from 'components/actions/FullScreen'
+import Timeline from 'components/timeline/Timeline'
 
 interface ControlsProps {}
 
@@ -32,7 +33,9 @@ class Controls extends BaseComponent<ControlsProps, ControlsState> {
 
                         <FullScreen />
                     </div>
-                    <div className='section section__2'></div>
+                    <div className='section section__2'>
+                        <Timeline />
+                    </div>
                 </div>
             </div>
         )

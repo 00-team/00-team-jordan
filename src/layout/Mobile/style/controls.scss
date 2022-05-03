@@ -12,9 +12,9 @@
         width: 100%;
         height: calc(100% / 3);
 
-        &__1 {
-            // background-color: green;
-        }
+        // &__1 {
+        //     // background-color: green;
+        // }
         &__2 {
             // background-color: brown;
             @include f-center;
@@ -34,7 +34,7 @@
             justify-content: flex-end;
 
             .section {
-                @include box(100%, 40%);
+                @include box(100%, 30%);
 
                 &__1 {
                     padding: 1rem;
@@ -50,15 +50,54 @@
 
                     button {
                         height: 60%;
-
-                        svg {
-                            color: #000;
-                        }
                     }
                 }
 
                 &__2 {
+                    display: flex;
+                    align-items: center;
+                    padding: 0 1%;
                     background-color: darkcyan;
+
+                    .timeline-container {
+                        padding: 0 1%;
+                        display: flex;
+                        align-items: center;
+                        @include box(100%, 40%);
+                        position: relative;
+
+                        border: 2px dashed #fff;
+
+                        .timeline {
+                            overflow: hidden;
+                            @include box(100%, 6px);
+                            border-radius: 5px;
+                            background-color: #000;
+
+                            .fill {
+                                @include box(0%, 100%);
+                                background-color: chocolate;
+                            }
+                        }
+
+                        .timeline-shadow {
+                            position: absolute;
+                            @include box(98%, 6px);
+                            display: flex;
+                            align-items: center;
+
+                            .thumb {
+                                $size: 20px;
+                                @include box($size);
+                                position: absolute;
+                                background-color: red;
+                                border-radius: 50%;
+                                margin-left: -$size / 2;
+                                cursor: pointer;
+                                left: 0%;
+                            }
+                        }
+                    }
                 }
             }
         }
