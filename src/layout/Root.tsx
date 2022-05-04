@@ -9,6 +9,8 @@ import Mobile from './Mobile'
 // context
 import { PlayerContext } from '../context'
 
+const isMobile = () => 'ontouchstart' in window || navigator.maxTouchPoints > 0
+
 interface RootProps {
     video?: HTMLVideoElement
     vito?: HTMLDivElement
@@ -34,7 +36,7 @@ const Root: FC<RootProps> = props => {
                     changeSource,
                 }}
             >
-                <Mobile />
+                {isMobile() ? <Mobile /> : <Mobile />}
             </PlayerContext.Provider>
         )
 
