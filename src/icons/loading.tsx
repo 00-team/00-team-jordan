@@ -17,25 +17,23 @@ const CHandsAnim = {
     repeatCount: 'indefinite',
 }
 
-export default () => {
-    return (
-        <svg className='loading' viewBox='0 0 60 60'>
-            <circle
-                r='28'
-                stroke='currentColor'
-                strokeWidth='2'
-                cx='30'
-                cy='30'
-                fill='#0000'
-            />
-            <circle r='1.5' fill='currentColor' cx='30' cy='30' />
+export default () => (
+    <svg className='loading' viewBox='0 0 60 60'>
+        <circle
+            r='28'
+            stroke='currentColor'
+            strokeWidth='2'
+            cx='30'
+            cy='30'
+            fill='#0000'
+        />
+        <circle r='1.5' fill='currentColor' cx='30' cy='30' />
 
-            <line x2='55' {...ClockHands}>
-                <animateTransform dur='2s' {...CHandsAnim} />
-            </line>
-            <line x2='50' {...ClockHands}>
-                <animateTransform dur='8s' {...CHandsAnim} />
-            </line>
-        </svg>
-    )
-}
+        <line x2='55' {...ClockHands}>
+            <animateTransform dur='2s' {...CHandsAnim} />
+        </line>
+        <line x2='50' {...ClockHands}>
+            <animateTransform dur='8s' {...CHandsAnim} />
+        </line>
+    </svg>
+)
