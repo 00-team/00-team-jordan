@@ -10,6 +10,7 @@ import Time from 'components/timeline/Time'
 import Duration from 'components/timeline/Duration'
 import FullScreen from 'components/actions/FullScreen'
 import Timeline from 'components/timeline/Timeline'
+import Settings from 'components/settings'
 
 interface ControlsProps {}
 
@@ -21,7 +22,12 @@ class Controls extends BaseComponent<ControlsProps, ControlsState> {
     override render(): ReactElement {
         return (
             <div className='controls'>
-                <div className='page page__1'></div>
+                <div className='page page__1'>
+                    <div className='title'></div>
+                    <div className='buttons'>
+                        <Settings />
+                    </div>
+                </div>
                 <div className='page page__2'>
                     <TogglePPL />
                 </div>
