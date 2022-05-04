@@ -12,9 +12,31 @@
         width: 100%;
         height: calc(100% / 3);
 
-        // &__1 {
-        //     // background-color: green;
-        // }
+        &__1 {
+            padding: 1%;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            background-color: darkcyan;
+
+            .title {
+                font-family: sans-serif;
+                text-transform: capitalize;
+            }
+
+            .buttons {
+                display: flex;
+                height: 20%;
+                gap: 1em;
+                padding: 0 0.5em;
+                align-items: center;
+                // background-color: #f00;
+
+                button {
+                    height: 100%;
+                }
+            }
+        }
         &__2 {
             // background-color: brown;
             @include f-center;
@@ -37,42 +59,41 @@
                 @include box(100%, 30%);
 
                 &__1 {
-                    padding: 1rem;
+                    padding: 0 2%;
                     display: flex;
-                    align-items: flex-end;
+                    align-items: center;
                     justify-content: space-between;
+                    // background-color: brown;
 
                     .time {
-                        background-color: red;
-                        font-size: 20px;
+                        font-size: 1em;
                         font-family: sans-serif;
                     }
 
                     button {
-                        height: 60%;
+                        height: 100%;
+                        max-height: 30px;
                     }
                 }
 
                 &__2 {
                     display: flex;
                     align-items: center;
-                    padding: 0 1%;
-                    background-color: darkcyan;
+                    padding: 0 2%;
 
                     .timeline-container {
-                        padding: 0 1%;
                         display: flex;
                         align-items: center;
                         @include box(100%, 40%);
                         position: relative;
 
-                        border: 2px dashed #fff;
+                        // border: 2px dashed #fff;
 
                         .timeline {
                             overflow: hidden;
                             @include box(100%, 6px);
                             border-radius: 5px;
-                            background-color: #000;
+                            background-color: lightblue;
 
                             .fill {
                                 @include box(0%, 100%);
@@ -82,7 +103,7 @@
 
                         .timeline-shadow {
                             position: absolute;
-                            @include box(98%, 6px);
+                            @include box(100%, 6px);
                             display: flex;
                             align-items: center;
 
