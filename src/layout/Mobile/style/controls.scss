@@ -54,19 +54,20 @@
             display: flex;
             flex-direction: column;
             justify-content: flex-end;
+            background-color: #0005;
+            background: linear-gradient(0deg, #000 -10%, #0000 100%);
 
             .section {
-                @include box(100%, 30%);
+                @include box(100%, fit-content);
 
                 &__1 {
                     padding: 0 2%;
                     display: flex;
                     align-items: center;
                     justify-content: space-between;
-                    // background-color: brown;
 
                     .time {
-                        font-size: 1em;
+                        font-size: clamp(1rem, 1vw + 1vh + 0.2rem, 2rem);
                         font-family: sans-serif;
                     }
 
@@ -79,15 +80,13 @@
                 &__2 {
                     display: flex;
                     align-items: center;
-                    padding: 0 2%;
+                    padding: 5px 2% 10px;
 
                     .timeline-container {
                         display: flex;
                         align-items: center;
-                        @include box(100%, 40%);
+                        @include box(100%, 20px);
                         position: relative;
-
-                        // border: 2px dashed #fff;
 
                         .timeline {
                             overflow: hidden;
@@ -113,7 +112,7 @@
                                 position: absolute;
                                 background-color: red;
                                 border-radius: 50%;
-                                margin-left: -$size / 2;
+                                margin-left: calc($size / -2);
                                 cursor: pointer;
                                 left: 0%;
                             }
