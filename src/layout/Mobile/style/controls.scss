@@ -13,41 +13,59 @@
         height: calc(100% / 3);
 
         &__1 {
-            padding: 1%;
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-start;
-            background-color: darkcyan;
+            padding: 2%;
+            background-color: #0005;
+            background: linear-gradient(180deg, #000 -10%, #0000 100%);
 
-            .title {
-                font-family: sans-serif;
-                text-transform: capitalize;
-            }
-
-            .buttons {
+            .wrapper {
+                width: 100%;
                 display: flex;
-                height: 20%;
-                gap: 1em;
-                padding: 0 0.5em;
+                justify-content: space-between;
+                gap: 1rem;
                 align-items: center;
-                // background-color: #f00;
 
-                button {
-                    height: 100%;
+                .title {
+                    font-family: sans-serif;
+                    text-transform: capitalize;
+                    white-space: nowrap;
+                    width: 100%;
+                    overflow: hidden;
+                    font-size: clamp(0.7rem, 1vw + 1vh + 0.2rem, 1.7rem);
+
+                    * {
+                        font-weight: normal;
+                        overflow: hidden;
+                        text-overflow: ellipsis;
+                    }
+                }
+
+                .buttons {
+                    width: max-content;
+                    display: flex;
+                    height: clamp(20px, 1.4vw + 1vh + 7px, 30px);
+                    gap: clamp(7px, 0.7vw + 0.7vh + 1px, 15px);
+                    align-items: center;
+
+                    flex-shrink: 0;
+
+                    button {
+                        height: 100%;
+                    }
                 }
             }
         }
         &__2 {
-            // background-color: brown;
             @include f-center;
             column-gap: 5%;
 
             button {
-                height: 60%;
+                height: calc(2vh + 2vw + 10px + 15%);
+                max-height: 70%;
             }
 
             .loading {
-                height: 60%;
+                height: calc(2vh + 2vw + 10px + 15%);
+                max-height: 70%;
             }
         }
         &__3 {
@@ -67,13 +85,12 @@
                     justify-content: space-between;
 
                     .time {
-                        font-size: clamp(1rem, 1vw + 1vh + 0.2rem, 2rem);
+                        font-size: clamp(0.7rem, 1vw + 1vh + 0.2rem, 1.7rem);
                         font-family: sans-serif;
                     }
 
                     button {
-                        height: 100%;
-                        max-height: 30px;
+                        height: clamp(20px, 1.4vw + 1vh + 7px, 30px);
                     }
                 }
 
@@ -107,11 +124,11 @@
                             align-items: center;
 
                             .thumb {
-                                $size: 20px;
+                                $size: 11px;
                                 @include box($size);
                                 position: absolute;
                                 background-color: red;
-                                border-radius: 50%;
+                                border-radius: 40%;
                                 margin-left: calc($size / -2);
                                 cursor: pointer;
                                 left: 0%;

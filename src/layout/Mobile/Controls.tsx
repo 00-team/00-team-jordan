@@ -23,9 +23,11 @@ class Controls extends BaseComponent<ControlsProps, ControlsState> {
         return (
             <div className='controls'>
                 <div className='page page__1'>
-                    <div className='title'></div>
-                    <div className='buttons'>
-                        <Settings />
+                    <div className='wrapper'>
+                        <div className='title'></div>
+                        <div className='buttons'>
+                            <Settings />
+                        </div>
                     </div>
                 </div>
                 <div className='page page__2'>

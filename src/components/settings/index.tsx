@@ -13,7 +13,7 @@ class Settings extends BaseComponent<SettingsProps, SettingsState> {
 
     override render(): ReactElement {
         return (
-            <button>
+            <button onClick={() => alert('settings')}>
                 <Icon />
             </button>
         )
