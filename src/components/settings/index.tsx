@@ -9,7 +9,9 @@ import Menu from './Menu'
 
 interface SettingsProps {}
 
-interface SettingsState {}
+interface SettingsState {
+    showMenu: boolean
+}
 
 const DefaultSpeeds = [
     { label: '0.25', value: 0.25 },
@@ -23,7 +25,9 @@ const DefaultSpeeds = [
 ]
 
 class Settings extends BaseComponent<SettingsProps, SettingsState> {
-    override state: SettingsState = {}
+    override state: SettingsState = {
+        showMenu: false,
+    }
 
     private ChangeQuality(url: string) {
         const CurrentTime = this.video.currentTime
@@ -59,20 +63,24 @@ class Settings extends BaseComponent<SettingsProps, SettingsState> {
         ]
 
         return menu
-        // this.sources
-        // this.changeSource
     }
 
     override render(): ReactElement {
         return (
             <div className='settings-container'>
-                <button onClick={() => alert('settings')}>
+                <button
+                    onClick={() =>
+                        this.setState(s => ({ showMenu: !s.showMenu }))
+                    }
+                >
                     <Icon />
                 </button>
 
-                <div className='settings-menu'>
-                    <Menu menu={this.MakeMenu()} />
-                </div>
+                {this.state.showMenu && (
+                    <ul className='settings-menu'>
+                        <Menu menu={this.MakeMenu()} />
+                    </ul>
+                )}
             </div>
         )
     }
