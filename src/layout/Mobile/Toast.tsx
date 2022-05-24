@@ -11,7 +11,7 @@ class Toast extends PureComponent<ToastProps, ToastState> {
 
     override render(): ReactElement {
         return (
-            <div className='toast-container'>
+            <div className='toasts-container'>
                 <PlayerContext.Consumer>
                     {({ toasts }) =>
                         toasts &&
