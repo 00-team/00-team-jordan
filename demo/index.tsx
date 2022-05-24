@@ -5,11 +5,11 @@ import { createRoot } from 'react-dom/client'
 import './style.scss'
 
 // player
-import { Player, Source } from '../lib'
+import { Player, Source } from '../lib/'
 
-// import green from './videos/green.mp4'
-// import red from './videos/red.mp4'
-// import blue from './videos/blue.mp4'
+import green from './videos/green.mp4'
+import red from './videos/red.mp4'
+import blue from './videos/blue.mp4'
 
 const source: Source = [
     // 'https://cdn.discordapp.com/attachments/837976157609656323/842785794485780520/Shrek_1.mp4',
@@ -17,6 +17,18 @@ const source: Source = [
     // blue,
     // green,
     // red,
+    {
+        label: 'Blue',
+        url: blue,
+    },
+    {
+        label: 'Green',
+        url: green,
+    },
+    {
+        label: 'Red',
+        url: red,
+    },
 ]
 
 const App: FC = () => {
