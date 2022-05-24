@@ -35,6 +35,9 @@ class TogglePPL extends BaseComponent<TogglePPLProps, TogglePPLState> {
     }
 
     override componentDidMount() {
+        this.UpdateIsLoadingPR()
+        this.UpdateIsPlayingPR()
+
         this.video.addEventListener('play', this.UpdateIsPlaying)
         this.video.addEventListener('pause', this.UpdateIsPlaying)
 

@@ -32,10 +32,16 @@ class Time extends BaseComponent<TimeProps, TimeState> {
 
     override componentDidMount() {
         if (this.props.type === 'remaining') {
+            if (!isNaN(this.video.duration) && !isNaN(this.video.currentTime))
+                this.TimeRemainingBind()
+
             this.video.addEventListener('canplay', this.TimeRemainingBind)
             this.video.addEventListener('timeupdate', this.TimeRemainingBind)
             this.video.addEventListener('loadstart', this.TimeRemainingBind)
         } else {
+            if (!isNaN(this.video.duration) && !isNaN(this.video.currentTime))
+                this.TimePassedBind()
+
             this.video.addEventListener('canplay', this.TimePassedBind)
             this.video.addEventListener('timeupdate', this.TimePassedBind)
             this.video.addEventListener('loadstart', this.TimePassedBind)

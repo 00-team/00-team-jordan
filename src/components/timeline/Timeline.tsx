@@ -2,12 +2,8 @@ import React, { ReactElement } from 'react'
 import { MouseEvent as RMouseEvent, TouchEvent as RTouchEvent } from 'react'
 import BaseComponent from 'BaseComponent'
 
-const F = (n: number) => Math.floor(n)
-
 type TP = (container: number, number: number) => number
 const P: TP = (c, n) => (100 / c) * n
-
-F
 
 // type timeline element
 type TTLEL = HTMLDivElement
@@ -96,6 +92,8 @@ class Timeline extends BaseComponent<TimelineProps, TimelineState> {
     }
 
     override componentDidMount() {
+        if (!isNaN(this.video.duration) && !isNaN(this.video.currentTime))
+            this.UpdateTime()
         // time
         this.video.addEventListener('timeupdate', this.UpdateTime)
     }

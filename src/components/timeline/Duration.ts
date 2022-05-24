@@ -18,6 +18,7 @@ class Duration extends BaseComponent<{}, DurationState> {
     }
 
     override componentDidMount() {
+        if (!isNaN(this.video.duration)) this.UpdateDurationPR()
         this.video.addEventListener('loadedmetadata', this.UpdateDuration)
         this.video.addEventListener('loadeddata', this.UpdateDuration)
         this.video.addEventListener('canplay', this.UpdateDuration)
