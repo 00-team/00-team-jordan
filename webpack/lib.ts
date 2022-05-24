@@ -3,6 +3,7 @@ import Base from './base'
 
 // path
 import { SRC_DIR, LIB_DIR, resolve } from './config/path'
+import TsPaths from 'tsconfig-paths-webpack-plugin'
 
 // style
 import { BuildStyle } from './config/style'
@@ -34,12 +35,9 @@ const Config: Configuration = {
     ],
     resolve: {
         ...Base.resolve!,
-        alias: {
-            components: resolve(SRC_DIR, 'components'),
-            utils: resolve(SRC_DIR, 'utils'),
-            icons: resolve(SRC_DIR, 'icons'),
-            BaseComponent: resolve(SRC_DIR, 'BaseComponent'),
-        },
+        plugins: [
+            new TsPaths({ configFile: resolve(SRC_DIR, 'tsconfig.json') }),
+        ],
     },
     optimization: {
         minimize: true,
