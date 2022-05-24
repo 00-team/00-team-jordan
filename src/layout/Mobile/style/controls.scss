@@ -55,6 +55,46 @@
 
                     .settings-container {
                         position: relative;
+
+                        .settings-menu {
+                            max-width: 20vw;
+                            overflow: hidden;
+                            border-radius: 5px;
+                            $space: 0.2em;
+                            position: absolute;
+                            background-color: gold;
+                            color: #000;
+                            right: $space;
+                            top: calc(100% + $space);
+                            list-style: none;
+                            font-size: clamp(
+                                0.5rem,
+                                0.9vw + 0.9vh + 0.2rem,
+                                1.5rem
+                            );
+                            font-family: sans-serif;
+                            padding: $space;
+
+                            display: flex;
+                            flex-direction: column;
+                            gap: calc($space / 2);
+                            align-items: flex-start;
+
+                            .menu-back-button {
+                                width: 100%;
+                                overflow: hidden;
+                                white-space: nowrap;
+                                margin-bottom: calc($space / 2);
+                                height: auto;
+                                font-size: clamp(
+                                    0.5rem,
+                                    0.8vw + 0.8vh + 0.2rem,
+                                    1.5rem
+                                );
+                                font-family: sans-serif;
+                                border-bottom: 1px solid #000;
+                            }
+                        }
                     }
                 }
             }
