@@ -4,6 +4,7 @@ import { Menu as MenuType, OptionType } from '../../types'
 
 interface MenuProps {
     menu: MenuType
+    className?: string
 }
 
 interface MenuState {
@@ -21,9 +22,10 @@ class Menu extends PureComponent<MenuProps, MenuState> {
 
     override render(): ReactElement {
         return (
-            <ul>
+            <>
                 {this.state.BackButton && (
                     <button
+                        className='menu-back-button'
                         onClick={() =>
                             this.setState(s => {
                                 let p = s.parentMenu.pop()
@@ -39,11 +41,15 @@ class Menu extends PureComponent<MenuProps, MenuState> {
                             })
                         }
                     >
-                        Back Off
+                        &#60; Back
                     </button>
                 )}
                 {this.state.curentMenu.map((opt, index) => (
                     <li
+                        className={
+                            'menu-item' +
+                            (opt.type === OptionType.Menu ? ' menu' : ' action')
+                        }
                         key={index}
                         onClick={() =>
                             opt.type === OptionType.Action
@@ -61,7 +67,7 @@ class Menu extends PureComponent<MenuProps, MenuState> {
                         {opt.label}
                     </li>
                 ))}
-            </ul>
+            </>
         )
     }
 }
