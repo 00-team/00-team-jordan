@@ -48,7 +48,10 @@ class Settings extends BaseComponent<SettingsProps, SettingsState> {
                 menu: DefaultSpeeds.map(speed => ({
                     label: speed.label,
                     type: OptionType.Action,
-                    action: () => (this.video.playbackRate = speed.value),
+                    action: () => {
+                        this.setToast(`Speed x${speed.value}`)
+                        this.video.playbackRate = speed.value
+                    },
                 })),
             },
             {

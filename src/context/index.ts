@@ -1,13 +1,14 @@
 import { createContext } from 'react'
 
-import { Options, SourceObject, SourceObjectList } from '../types'
+import { SourceObject, SourceObjectList } from '../types'
+import { BasePlayerModel } from '../types'
 
-interface PlayerContextType {
+interface PlayerContextType extends BasePlayerModel {
     video: HTMLVideoElement
     vito: HTMLDivElement
-    options?: Options
     sources: SourceObjectList
     source: SourceObject // Current Source
+    setToast: (t: string) => void
 }
 
 const PlayerContext = createContext<PlayerContextType>({} as PlayerContextType)

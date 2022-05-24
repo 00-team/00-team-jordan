@@ -11,6 +11,7 @@ import Duration from 'components/timeline/Duration'
 import FullScreen from 'components/actions/FullScreen'
 import Timeline from 'components/timeline/Timeline'
 import Settings from 'components/settings'
+import Toast from './Toast'
 
 interface ControlsProps {}
 
@@ -38,6 +39,8 @@ class Controls extends BaseComponent<ControlsProps, ControlsState> {
                         <span className='time'>
                             <Time /> / <Duration />
                         </span>
+
+                        <Toast />
 
                         <FullScreen />
                     </div>

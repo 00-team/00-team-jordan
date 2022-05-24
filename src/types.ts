@@ -1,3 +1,20 @@
+interface BasePlayerModel {
+    video?: HTMLVideoElement
+    vito?: HTMLDivElement
+    sources?: SourceObjectList
+    source?: SourceObject // Current Source
+    options?: Options
+    toasts?: Toast[]
+    setToast?: (toast: string) => void
+}
+
+interface Toast {
+    id: number
+    text: string
+}
+
+export { BasePlayerModel, Toast }
+
 interface SourceObject {
     url: string
     label: string

@@ -4,7 +4,8 @@ import React, { PureComponent, ReactElement } from 'react'
 import { ConvertSource, GetMainSource } from './utils'
 
 // types
-import { Source, Options, SourceObject, SourceObjectList } from './types'
+import { BasePlayerModel } from './types'
+import { Source, Options } from './types'
 
 // tree
 import RootLayout from './layout/Root'
@@ -17,13 +18,7 @@ interface PlayerProps {
     options?: Options
 }
 
-interface PlayerState {
-    video?: HTMLVideoElement
-    vito?: HTMLDivElement
-    options?: Options
-    sources?: SourceObjectList
-    source?: SourceObject // Current Source
-}
+interface PlayerState extends BasePlayerModel {}
 
 class Player extends PureComponent<PlayerProps, PlayerState> {
     override state: PlayerState = {}
@@ -31,6 +26,23 @@ class Player extends PureComponent<PlayerProps, PlayerState> {
     override componentDidMount() {
         let sources = ConvertSource(this.props.source)
         this.setState({ sources: sources, source: GetMainSource(sources) })
+    }
+
+    private setToast = this.setToastPR.bind(this)
+    private setToastPR(toast: string) {
+        this.setState(s => {
+            let id = 0
+
+            if (s.toasts && s.toasts.length > 0) id = s.toasts.at(-1)!.id + 1
+
+            setTimeout(() => {
+                this.setState(s => ({
+                    toasts: s.toasts ? s.toasts.filter(t => t.id !== id) : [],
+                }))
+            }, 5000)
+
+            return { toasts: [...(s.toasts || []), { id: id, text: toast }] }
+        })
     }
 
     override render(): ReactElement {
@@ -45,7 +57,8 @@ class Player extends PureComponent<PlayerProps, PlayerState> {
                     src={this.state.source.url}
                     ref={node => node && this.setState({ video: node })}
                 />
-                <RootLayout {...this.state} />
+
+                <RootLayout {...this.state} setToast={this.setToast} />
             </div>
         )
     }
