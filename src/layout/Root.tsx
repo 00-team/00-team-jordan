@@ -17,12 +17,10 @@ interface RootProps {
     options?: Options
     sources?: SourceObjectList
     source?: SourceObject // Current Source
-    changeSource: (s: SourceObject) => void
 }
 
 const Root: FC<RootProps> = props => {
     const { video, vito, options, source, sources } = props
-    const { changeSource } = props
 
     if (video && vito && source && sources)
         return (
@@ -33,7 +31,6 @@ const Root: FC<RootProps> = props => {
                     options,
                     source,
                     sources,
-                    changeSource,
                 }}
             >
                 {isMobile() ? <Mobile /> : <Mobile />}

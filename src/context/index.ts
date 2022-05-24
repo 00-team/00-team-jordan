@@ -8,7 +8,6 @@ interface PlayerContextType {
     options?: Options
     sources: SourceObjectList
     source: SourceObject // Current Source
-    changeSource: (s: SourceObject) => void
 }
 
 const PlayerContext = createContext<PlayerContextType>({} as PlayerContextType)

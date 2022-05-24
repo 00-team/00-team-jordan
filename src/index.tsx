@@ -33,10 +33,6 @@ class Player extends PureComponent<PlayerProps, PlayerState> {
         this.setState({ sources: sources, source: GetMainSource(sources) })
     }
 
-    private changeSource(s: SourceObject) {
-        this.setState({ source: s })
-    }
-
     override render(): ReactElement {
         if (!this.state.source) return <></>
         return (
@@ -49,7 +45,7 @@ class Player extends PureComponent<PlayerProps, PlayerState> {
                     src={this.state.source.url}
                     ref={node => node && this.setState({ video: node })}
                 />
-                <RootLayout changeSource={this.changeSource} {...this.state} />
+                <RootLayout {...this.state} />
             </div>
         )
     }

@@ -48,12 +48,18 @@
 
                     flex-shrink: 0;
 
-                    button {
+                    button,
+                    div {
                         height: 100%;
+                    }
+
+                    .settings-container {
+                        position: relative;
                     }
                 }
             }
         }
+
         &__2 {
             @include f-center;
             column-gap: 5%;
@@ -68,6 +74,7 @@
                 max-height: 70%;
             }
         }
+
         &__3 {
             display: flex;
             flex-direction: column;

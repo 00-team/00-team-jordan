@@ -15,7 +15,6 @@ class BaseComponent<P = {}, S = {}> extends PureComponent<P, S> {
 
     public source = this.context.source
     public sources = this.context.sources
-    public changeSource = this.context.changeSource
 }
 
 export default BaseComponent
