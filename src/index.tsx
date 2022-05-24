@@ -39,7 +39,7 @@ class Player extends PureComponent<PlayerProps, PlayerState> {
                 this.setState(s => ({
                     toasts: s.toasts ? s.toasts.filter(t => t.id !== id) : [],
                 }))
-            }, 5000)
+            }, 3000)
 
             return { toasts: [...(s.toasts || []), { id: id, text: toast }] }
         })
