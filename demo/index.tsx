@@ -14,8 +14,10 @@ import duck_480p from './videos/480p.mp4'
 import duck_720p from './videos/original.mp4'
 
 const source: Source = [
-    // 'https://cdn.discordapp.com/attachments/837976157609656323/842785794485780520/Shrek_1.mp4',
-    // 'https://cdn.discordapp.com/attachments/876184324133752874/944696426544373790/nima_1384_bzan_20220219_222030_0.mp4',
+    // {
+    //     label: 'Shrek',
+    //     url: 'https://cdn.discordapp.com/attachments/837976157609656323/842785794485780520/Shrek_1.mp4',
+    // },
     {
         label: '144p',
         url: duck_144p,
