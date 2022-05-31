@@ -4,7 +4,7 @@ import BaseComponent from 'BaseComponent'
 // icons
 import Icon from 'icons/settings'
 
-import { Menu as MenuType, OptionType } from '../../types'
+import { Menu as MenuType, OptionType, SourceObject } from '../../types'
 import Menu from './Menu'
 
 interface SettingsProps {}
@@ -30,11 +30,12 @@ class Settings extends BaseComponent<SettingsProps, SettingsState> {
         showMenu: false,
     }
 
-    private ChangeQuality(url: string) {
+    private ChangeQuality(source: SourceObject) {
         const CurrentTime = this.video.currentTime
         const Paused = this.video.paused
         const speed = this.video.playbackRate
-        this.video.src = url
+        this.video.src = source.url
+        this.setToast(`Quality ${source.label}`)
         this.video.load()
         this.video.currentTime = CurrentTime
         this.video.playbackRate = speed
@@ -61,7 +62,7 @@ class Settings extends BaseComponent<SettingsProps, SettingsState> {
                 menu: this.sources.map(s => ({
                     label: s.label,
                     type: OptionType.Action,
-                    action: () => this.ChangeQuality(s.url),
+                    action: () => this.ChangeQuality(s),
                 })),
             },
         ]
