@@ -2,8 +2,10 @@ import BaseComponent from 'BaseComponent'
 
 import { ConvertTime } from 'utils/time'
 
+type TimeType = 'passed' | 'remaining'
+
 interface TimeProps {
-    type?: 'passed' | 'remaining'
+    type?: TimeType
 }
 
 interface TimeState {
@@ -30,8 +32,20 @@ class Time extends BaseComponent<TimeProps, TimeState> {
         })
     }
 
-    override componentDidMount() {
-        if (this.props.type === 'remaining') {
+    private CleanUpListeners() {
+        this.video.removeEventListener('canplay', this.TimeRemainingBind)
+        this.video.removeEventListener('timeupdate', this.TimeRemainingBind)
+        this.video.removeEventListener('loadstart', this.TimeRemainingBind)
+
+        this.video.removeEventListener('canplay', this.TimePassedBind)
+        this.video.removeEventListener('timeupdate', this.TimePassedBind)
+        this.video.removeEventListener('loadstart', this.TimePassedBind)
+    }
+
+    private SetupListeners(type?: TimeType) {
+        this.CleanUpListeners()
+
+        if (type === 'remaining') {
             if (!isNaN(this.video.duration) && !isNaN(this.video.currentTime))
                 this.TimeRemainingBind()
 
@@ -48,14 +62,18 @@ class Time extends BaseComponent<TimeProps, TimeState> {
         }
     }
 
-    override componentWillUnmount() {
-        this.video.removeEventListener('canplay', this.TimeRemainingBind)
-        this.video.removeEventListener('timeupdate', this.TimeRemainingBind)
-        this.video.removeEventListener('loadstart', this.TimeRemainingBind)
+    override componentDidMount() {
+        this.SetupListeners(this.props.type)
+    }
 
-        this.video.removeEventListener('canplay', this.TimePassedBind)
-        this.video.removeEventListener('timeupdate', this.TimePassedBind)
-        this.video.removeEventListener('loadstart', this.TimePassedBind)
+    override componentDidUpdate({ type }: TimeProps) {
+        if (type !== this.props.type) {
+            this.SetupListeners(this.props.type)
+        }
+    }
+
+    override componentWillUnmount() {
+        this.CleanUpListeners()
     }
 
     override render() {
@@ -63,5 +81,5 @@ class Time extends BaseComponent<TimeProps, TimeState> {
     }
 }
 
-export { Time }
+export { Time, TimeType }
 export default Time

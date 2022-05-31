@@ -6,7 +6,7 @@ import './style/controls.scss'
 
 // components
 import TogglePPL from './TogglePPL'
-import Time from 'components/timeline/Time'
+import { Time, TimeType } from 'components/timeline/Time'
 import Duration from 'components/timeline/Duration'
 import FullScreen from 'components/actions/FullScreen'
 import Timeline from 'components/timeline/Timeline'
@@ -15,10 +15,22 @@ import Toast from './Toast'
 
 interface ControlsProps {}
 
-interface ControlsState {}
+interface ControlsState {
+    timetype: TimeType
+}
 
 class Controls extends BaseComponent<ControlsProps, ControlsState> {
-    override state: ControlsState = {}
+    override state: ControlsState = {
+        timetype: 'passed',
+    }
+
+    private ToggleTime() {
+        this.setState(s =>
+            s.timetype === 'passed'
+                ? { timetype: 'remaining' }
+                : { timetype: 'passed' }
+        )
+    }
 
     override render(): ReactElement {
         return (
@@ -36,8 +48,11 @@ class Controls extends BaseComponent<ControlsProps, ControlsState> {
                 </div>
                 <div className='page page__3'>
                     <div className='section section__1'>
-                        <span className='time'>
-                            <Time /> / <Duration />
+                        <span
+                            className='time'
+                            onClick={() => this.ToggleTime()}
+                        >
+                            <Time type={this.state.timetype} /> / <Duration />
                         </span>
 
                         <Toast />
