@@ -11,6 +11,7 @@ interface SettingsProps {}
 
 interface SettingsState {
     showMenu: boolean
+    container?: Node
 }
 
 const DefaultSpeeds = [
@@ -68,14 +69,46 @@ class Settings extends BaseComponent<SettingsProps, SettingsState> {
         return menu
     }
 
+    private ToggleShow() {
+        this.setState(s => {
+            if (s.showMenu) {
+                document.removeEventListener('click', this.CloseMenu)
+                return { showMenu: false }
+            } else {
+                document.addEventListener('click', this.CloseMenu)
+                return { showMenu: true }
+            }
+        })
+    }
+
+    private CloseMenu = this.CloseMenuPR.bind(this)
+    private CloseMenuPR(e: MouseEvent) {
+        if (!this.state.showMenu) return
+        if (!this.state.container) return
+        if (!(e.target instanceof Node)) return
+        if (!e.target.isConnected) return
+        if (this.state.container.contains(e.target)) return
+
+        this.setState({ showMenu: false })
+        document.removeEventListener('click', this.CloseMenu)
+    }
+
+    override componentDidMount() {
+        if (this.state.showMenu)
+            document.addEventListener('click', this.CloseMenu)
+    }
+
+    override componentWillUnmount() {
+        document.removeEventListener('click', this.CloseMenu)
+    }
+
     override render(): ReactElement {
         return (
-            <div className='settings-container'>
-                <button
-                    onClick={() =>
-                        this.setState(s => ({ showMenu: !s.showMenu }))
-                    }
-                >
+            <div
+                className='settings-container'
+                ref={node => node && this.setState({ container: node })}
+            >
+                <button onClick={() => this.ToggleShow()}>
                     <Icon />
                 </button>
 

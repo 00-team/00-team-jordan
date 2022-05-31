@@ -53,6 +53,9 @@ class Player extends PureComponent<PlayerProps, PlayerState> {
                 ref={node => node && this.setState({ vito: node })}
             >
                 <video
+                    // debug
+                    muted
+                    // ----
                     className='main-video'
                     src={this.state.source.url}
                     ref={node => node && this.setState({ video: node })}
