@@ -10,7 +10,7 @@
 
     .page {
         width: 100%;
-        height: calc(100% / 3);
+        height: 100%;
 
         &__1 {
             padding: 2%;
@@ -101,6 +101,7 @@
         }
 
         &__2 {
+            height: 40%;
             @include f-center;
             column-gap: 5%;
 
@@ -193,43 +194,6 @@
                     display: flex;
                     align-items: center;
                     padding: 5px 2% 10px;
-
-                    .timeline-container {
-                        display: flex;
-                        align-items: center;
-                        @include box(100%, 20px);
-                        position: relative;
-
-                        .timeline {
-                            overflow: hidden;
-                            @include box(100%, 6px);
-                            border-radius: 5px;
-                            background-color: lightblue;
-
-                            .fill {
-                                @include box(0%, 100%);
-                                background-color: chocolate;
-                            }
-                        }
-
-                        .timeline-shadow {
-                            position: absolute;
-                            @include box(100%, 6px);
-                            display: flex;
-                            align-items: center;
-
-                            .thumb {
-                                $size: 11px;
-                                @include box($size);
-                                position: absolute;
-                                background-color: red;
-                                border-radius: 40%;
-                                margin-left: calc($size / -2);
-                                cursor: pointer;
-                                left: 0%;
-                            }
-                        }
-                    }
                 }
             }
         }

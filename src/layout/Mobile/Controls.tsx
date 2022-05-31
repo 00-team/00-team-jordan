@@ -3,6 +3,7 @@ import BaseComponent from 'BaseComponent'
 
 // style
 import './style/controls.scss'
+import './style/timeline.scss'
 
 // components
 import TogglePPL from './TogglePPL'
