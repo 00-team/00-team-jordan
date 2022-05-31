@@ -5,6 +5,7 @@
     align-items: center;
     @include box(100%, 20px);
     position: relative;
+    pointer-events: all;
 
     .timeline {
         overflow: hidden;
