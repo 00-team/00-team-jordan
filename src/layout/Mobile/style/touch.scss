@@ -3,7 +3,38 @@
 .vito-player .mobile-layout .touch {
     position: absolute;
     z-index: 1;
-    background-color: #0ff;
     @include box(100%);
-    @include f-center;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10%;
+
+    .panel {
+        width: 40%;
+        height: 100%;
+        $radius: 60% 40%;
+        transition: background-color 70ms ease-in-out;
+        opacity: 0;
+        background-color: #0007;
+        @include f-center;
+
+        &.left {
+            border-top-right-radius: $radius;
+            border-bottom-right-radius: $radius;
+        }
+
+        &.right {
+            border-top-left-radius: $radius;
+            border-bottom-left-radius: $radius;
+        }
+
+        &.taped {
+            opacity: 1;
+        }
+
+        span {
+            font-size: 1.5em;
+            font-family: sans-serif;
+        }
+    }
 }
