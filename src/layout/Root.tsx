@@ -3,6 +3,7 @@ import React, { FC } from 'react'
 import { BasePlayerModel } from '../types'
 
 import { PlayerContext } from '../context'
+import Desktop from './Desktop'
 import Mobile from './Mobile'
 
 const isMobile = () => 'ontouchstart' in window || navigator.maxTouchPoints > 0
@@ -28,7 +29,7 @@ const Root: FC<RootProps> = props => {
                     setToast,
                 }}
             >
-                {isMobile() ? <Mobile /> : <Mobile />}
+                {isMobile() ? <Mobile /> : <Desktop />}
             </PlayerContext.Provider>
         )
 

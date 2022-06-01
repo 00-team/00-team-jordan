@@ -9,7 +9,7 @@ class Desktop extends BaseComponent<DesktopProps, DesktopState> {
     override state: DesktopState = {}
 
     override render(): ReactElement {
-        return <div></div>
+        return <div>DeskTop</div>
     }
 }
 
