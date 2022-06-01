@@ -1,6 +1,5 @@
 import { PureComponent, ContextType } from 'react'
 
-// context
 import { PlayerContext } from './context'
 
 class BaseComponent<P = {}, S = {}> extends PureComponent<P, S> {

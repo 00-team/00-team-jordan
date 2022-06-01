@@ -1,7 +1,6 @@
-import React, { ReactElement } from 'react'
 import BaseComponent from 'BaseComponent'
+import React, { ReactElement } from 'react'
 
-// icons
 import { Contract, Expand } from 'icons/fullscreen'
 
 interface FullScreenProps {}

@@ -1,16 +1,12 @@
 import React, { PureComponent, ReactElement } from 'react'
 
-// utils
-import { ConvertSource, GetMainSource } from './utils'
-
-// types
 import { BasePlayerModel } from './types'
 import { Source, Options } from './types'
 
-// tree
 import RootLayout from './layout/Root'
 
-// style
+import { ConvertSource, GetMainSource } from './utils'
+
 import './style/player.scss'
 
 interface PlayerProps {

@@ -14,5 +14,20 @@
                 "tabWidth": 2
             }
         }
+    ],
+
+    "importOrderSeparation": true,
+    "importOrder": [
+        "(^react$|^react-dom|^BaseComponent$)",
+        "^@00-team/utils",
+        "/?icons",
+        "<THIRD_PARTY_MODULES>",
+        "/?types",
+        "/?layout/",
+        "(/?comps/|/?components/)",
+        "/?utils/",
+        "/videos/",
+        "\\./(?!style)",
+        "/style/"
     ]
 }

@@ -1,11 +1,10 @@
+import BaseComponent from 'BaseComponent'
 import React, { ReactElement } from 'react'
-
-// style
-import './style/index.scss'
 
 import Controls from './Controls'
 import Touch from './Touch'
-import BaseComponent from 'BaseComponent'
+
+import './style/index.scss'
 
 interface MobileProps {}
 

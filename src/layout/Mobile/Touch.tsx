@@ -1,12 +1,9 @@
-import React, { ReactElement } from 'react'
-
-import { MouseEvent as RMouseEvent } from 'react'
-
 import BaseComponent from 'BaseComponent'
+import React, { ReactElement } from 'react'
+import { MouseEvent as RMouseEvent } from 'react'
 
 import { C } from '@00-team/utils'
 
-// style
 import './style/touch.scss'
 
 type PanelSide = 'left' | 'right'

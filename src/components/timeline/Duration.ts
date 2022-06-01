@@ -1,4 +1,5 @@
 import BaseComponent from 'BaseComponent'
+
 import { ConvertTime } from 'utils/time'
 
 interface DurationState {

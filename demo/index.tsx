@@ -1,17 +1,15 @@
 import React, { FC } from 'react'
 import { createRoot } from 'react-dom/client'
 
-// style
 import './style.scss'
-
-// player
-import { Player, Source } from '../lib/'
 
 import duck_144p from './videos/144p.mp4'
 import duck_240p from './videos/240p.mp4'
 import duck_360p from './videos/360p.mp4'
 import duck_480p from './videos/480p.mp4'
 import duck_720p from './videos/original.mp4'
+
+import { Player, Source } from '../lib/'
 
 const source: Source = [
     // {

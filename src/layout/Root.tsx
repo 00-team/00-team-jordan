@@ -1,13 +1,9 @@
 import React, { FC } from 'react'
 
-// types
 import { BasePlayerModel } from '../types'
 
-// layouts
-import Mobile from './Mobile'
-
-// context
 import { PlayerContext } from '../context'
+import Mobile from './Mobile'
 
 const isMobile = () => 'ontouchstart' in window || navigator.maxTouchPoints > 0
 

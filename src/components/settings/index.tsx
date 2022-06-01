@@ -1,10 +1,10 @@
-import React, { ReactElement } from 'react'
 import BaseComponent from 'BaseComponent'
+import React, { ReactElement } from 'react'
 
-// icons
 import Icon from 'icons/settings'
 
 import { Menu as MenuType, OptionType, SourceObject } from '../../types'
+
 import Menu from './Menu'
 
 interface SettingsProps {}

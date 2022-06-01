@@ -1,13 +1,10 @@
-// toggle play/pause/loading
-import React, { ReactElement } from 'react'
 import BaseComponent from 'BaseComponent'
+import React, { ReactElement } from 'react'
 
-// components
-import Play from 'components/actions/Play'
-import Pause from 'components/actions/Pause'
-
-// icons
 import Loading from 'icons/loading'
+
+import Pause from 'components/actions/Pause'
+import Play from 'components/actions/Play'
 
 interface TogglePPLProps {}
 

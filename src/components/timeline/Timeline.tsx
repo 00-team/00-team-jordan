@@ -1,6 +1,6 @@
+import BaseComponent from 'BaseComponent'
 import React, { ReactElement } from 'react'
 import { MouseEvent as RMouseEvent, TouchEvent as RTouchEvent } from 'react'
-import BaseComponent from 'BaseComponent'
 
 type TP = (container: number, number: number) => number
 const P: TP = (c, n) => (100 / c) * n

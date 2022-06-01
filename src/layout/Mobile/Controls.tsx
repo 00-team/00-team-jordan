@@ -1,18 +1,17 @@
-import React, { ReactElement } from 'react'
 import BaseComponent from 'BaseComponent'
+import React, { ReactElement } from 'react'
 
-// style
+import FullScreen from 'components/actions/FullScreen'
+import Settings from 'components/settings'
+import Duration from 'components/timeline/Duration'
+import { Time, TimeType } from 'components/timeline/Time'
+import Timeline from 'components/timeline/Timeline'
+
+import Toast from './Toast'
+import TogglePPL from './TogglePPL'
+
 import './style/controls.scss'
 import './style/timeline.scss'
-
-// components
-import TogglePPL from './TogglePPL'
-import { Time, TimeType } from 'components/timeline/Time'
-import Duration from 'components/timeline/Duration'
-import FullScreen from 'components/actions/FullScreen'
-import Timeline from 'components/timeline/Timeline'
-import Settings from 'components/settings'
-import Toast from './Toast'
 
 interface ControlsProps {}
 
