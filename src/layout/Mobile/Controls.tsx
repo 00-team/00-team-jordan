@@ -1,14 +1,13 @@
 import BaseComponent from 'BaseComponent'
 import React, { ReactElement } from 'react'
 
+import Toast from 'common/Toast'
+import TogglePPL from 'common/TogglePPL'
 import FullScreen from 'components/actions/FullScreen'
 import Settings from 'components/settings'
 import Duration from 'components/timeline/Duration'
 import { Time, TimeType } from 'components/timeline/Time'
 import Timeline from 'components/timeline/Timeline'
-
-import Toast from './Toast'
-import TogglePPL from './TogglePPL'
 
 import './style/controls.scss'
 import './style/timeline.scss'
