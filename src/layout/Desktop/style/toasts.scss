@@ -1,0 +1,41 @@
+$s: '.vito-player .desktop-layout .controls .page__3 .section__0';
+#{$s} .toasts-container {
+    pointer-events: none;
+    touch-action: none;
+
+    position: absolute;
+    width: 100%;
+
+    bottom: 0;
+    left: 0;
+    transition: height 200ms;
+    z-index: 100;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.4em;
+
+    font-size: clamp(0.5rem, 0.8vw + 0.8vh + 0.1rem, 1.5rem);
+    font-family: sans-serif;
+    overflow: hidden;
+
+    .toast {
+        white-space: nowrap;
+        max-width: 50%;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        border-radius: 40px;
+        padding: 0.2em 0.8em;
+        background-color: #000b;
+        animation: show-toast 500ms ease both;
+    }
+
+    @keyframes show-toast {
+        from {
+            transform: translateY(100%);
+        }
+        to {
+            transform: translateY(0%);
+        }
+    }
+}

@@ -1,0 +1,183 @@
+@use '@00-team/utils' as *;
+
+.vito-player .desktop-layout .controls {
+    position: absolute;
+    z-index: 2;
+    pointer-events: none;
+
+    @include box(100%);
+    display: flex;
+    flex-direction: column;
+
+    .page {
+        width: 100%;
+        height: 100%;
+
+        &__1 {
+            padding: 5px 7px;
+            background-color: #0005;
+            background: linear-gradient(180deg, #000 -10%, #0000 100%);
+
+            .wrapper {
+                width: 100%;
+                display: flex;
+                justify-content: space-between;
+                gap: 1rem;
+                align-items: center;
+
+                .title {
+                    font-family: sans-serif;
+                    text-transform: capitalize;
+                    white-space: nowrap;
+                    width: 100%;
+                    overflow: hidden;
+                    font-size: clamp(0.7rem, 1vw + 1vh + 0.2rem, 1.7rem);
+
+                    * {
+                        font-weight: normal;
+                        overflow: hidden;
+                        text-overflow: ellipsis;
+                    }
+                }
+
+                .buttons {
+                    pointer-events: all;
+                    width: max-content;
+                    display: flex;
+                    height: 30px;
+                    gap: clamp(7px, 0.7vw + 0.7vh + 1px, 15px);
+                    align-items: center;
+
+                    flex-shrink: 0;
+
+                    button,
+                    div {
+                        height: 100%;
+                    }
+
+                    .settings-container {
+                        position: relative;
+
+                        .settings-menu {
+                            max-width: 20vw;
+                            overflow: hidden;
+                            border-radius: 5px;
+                            $space: 0.2em;
+                            position: absolute;
+                            background-color: gold;
+                            color: #000;
+                            right: $space;
+                            top: calc(100% + $space);
+                            list-style: none;
+                            font-size: clamp(
+                                0.5rem,
+                                0.9vw + 0.9vh + 0.2rem,
+                                1.5rem
+                            );
+                            font-family: sans-serif;
+                            padding: $space;
+
+                            display: flex;
+                            flex-direction: column;
+                            gap: calc($space / 2);
+                            align-items: flex-start;
+
+                            .menu-back-button {
+                                width: 100%;
+                                overflow: hidden;
+                                white-space: nowrap;
+                                margin-bottom: calc($space / 2);
+                                height: auto;
+                                font-size: clamp(
+                                    0.5rem,
+                                    0.8vw + 0.8vh + 0.2rem,
+                                    1.5rem
+                                );
+                                font-family: sans-serif;
+                                border-bottom: 1px solid #000;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        &__2 {
+            height: 40%;
+            @include f-center;
+            column-gap: 5%;
+
+            button {
+                height: calc(2vh + 2vw + 10px + 15%);
+                max-height: 70%;
+            }
+
+            .loading {
+                height: calc(2vh + 2vw + 10px + 15%);
+                max-height: 70%;
+            }
+        }
+        &__3 {
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            background-color: #0005;
+            background: linear-gradient(0deg, #000 -10%, #0000 100%);
+
+            .section {
+                @include box(100%, fit-content);
+
+                &__0 {
+                    position: relative;
+                    margin-bottom: 10px;
+                }
+
+                &__1 {
+                    display: flex;
+                    align-items: center;
+                    padding: 4px 8px;
+                }
+
+                &__2 {
+                    height: 40px;
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                    padding: 0 7px;
+
+                    .time {
+                        font-size: clamp(0.7rem, 1vw + 1vh + 0.2rem, 1.3rem);
+                        font-family: sans-serif;
+                        pointer-events: all;
+                    }
+
+                    button {
+                        height: 30px;
+                        aspect-ratio: 1;
+                    }
+
+                    .side {
+                        display: flex;
+                        align-items: center;
+                        gap: 10px;
+                        // .left {
+                        //     // background-color: red;
+                        // }
+
+                        // .right {
+                        // }
+                    }
+                    // height: 50px;
+                    background-color: darkcyan;
+                }
+            }
+        }
+
+        button {
+            cursor: pointer;
+            background-color: transparent;
+            border: none;
+            display: flex;
+            pointer-events: all;
+        }
+    }
+}

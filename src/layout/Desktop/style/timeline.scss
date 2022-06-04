@@ -1,0 +1,43 @@
+@use '@00-team/utils' as *;
+
+$s: '.vito-player .desktop-layout .controls .page__3 .section__1';
+
+#{$s} .timeline-container {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    position: relative;
+    background-color: red;
+    pointer-events: all;
+
+    .timeline {
+        overflow: hidden;
+        @include box(100%, 6px);
+        border-radius: 5px;
+        background-color: lightblue;
+        cursor: pointer;
+
+        .fill {
+            @include box(0%, 100%);
+            background-color: darkorchid;
+        }
+    }
+
+    .timeline-shadow {
+        position: absolute;
+        @include box(100%, 6px);
+        display: flex;
+        align-items: center;
+
+        .thumb {
+            $size: 11px;
+            @include box($size);
+            position: absolute;
+            background-color: darkturquoise;
+            border-radius: 40%;
+            margin-left: calc($size / -2);
+            cursor: pointer;
+            left: 0%;
+        }
+    }
+}

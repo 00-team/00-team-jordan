@@ -1,0 +1,5 @@
+@use '@00-team/utils' as *;
+
+.vito-player .desktop-layout {
+    @include box(100%);
+}
