@@ -6,7 +6,9 @@ import Loading from 'icons/loading'
 import Pause from 'components/actions/Pause'
 import Play from 'components/actions/Play'
 
-interface TogglePPLProps {}
+interface TogglePPLProps {
+    Loading?: boolean
+}
 
 interface TogglePPLState {
     isPlaying: boolean
@@ -18,6 +20,8 @@ class TogglePPL extends BaseComponent<TogglePPLProps, TogglePPLState> {
         isPlaying: false,
         isLoading: true,
     }
+
+    private showLoading = this.props.Loading === undefined || this.props.Loading
 
     private UpdateIsPlaying = this.UpdateIsPlayingPR.bind(this)
     private UpdateIsPlayingPR() {
@@ -32,18 +36,20 @@ class TogglePPL extends BaseComponent<TogglePPLProps, TogglePPLState> {
     }
 
     override componentDidMount() {
-        this.UpdateIsLoadingPR()
         this.UpdateIsPlayingPR()
 
         this.video.addEventListener('play', this.UpdateIsPlaying)
         this.video.addEventListener('pause', this.UpdateIsPlaying)
 
         // loading
-        this.video.addEventListener('loadstart', this.UpdateIsLoading)
-        this.video.addEventListener('canplay', this.UpdateIsLoading)
-        this.video.addEventListener('canplaythrough', this.UpdateIsLoading)
-        this.video.addEventListener('progress', this.UpdateIsLoading)
-        this.video.addEventListener('loadeddata', this.UpdateIsLoading)
+        if (this.showLoading) {
+            this.UpdateIsLoadingPR()
+            this.video.addEventListener('loadstart', this.UpdateIsLoading)
+            this.video.addEventListener('canplay', this.UpdateIsLoading)
+            this.video.addEventListener('canplaythrough', this.UpdateIsLoading)
+            this.video.addEventListener('progress', this.UpdateIsLoading)
+            this.video.addEventListener('loadeddata', this.UpdateIsLoading)
+        }
     }
 
     override componentWillUnmount() {
@@ -59,7 +65,7 @@ class TogglePPL extends BaseComponent<TogglePPLProps, TogglePPLState> {
     }
 
     override render(): ReactElement {
-        if (this.state.isLoading) return <Loading />
+        if (this.state.isLoading && this.showLoading) return <Loading />
         if (this.state.isPlaying) return <Pause />
         else return <Play />
     }
