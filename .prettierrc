@@ -24,7 +24,7 @@
         "<THIRD_PARTY_MODULES>",
         "/?types",
         "/?layout/",
-        "(/?comps/|/?components/)",
+        "(/?comps/|/?components/|/?common/)",
         "/?utils/",
         "/videos/",
         "\\./(?!style)",
