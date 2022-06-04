@@ -11,6 +11,7 @@ import Timeline from 'components/timeline/Timeline'
 
 import './style/controls.scss'
 import './style/timeline.scss'
+import './style/toasts.scss'
 
 interface ControlsProps {}
 
