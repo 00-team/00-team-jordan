@@ -3,6 +3,7 @@ import React, { ReactElement } from 'react'
 
 import Toast from 'common/Toast'
 import TogglePPL from 'common/TogglePPL'
+import FloatScreen from 'components/actions/FloatScreen'
 import FullScreen from 'components/actions/FullScreen'
 import Settings from 'components/settings'
 import Duration from 'components/timeline/Duration'
@@ -67,6 +68,7 @@ class Controls extends BaseComponent<ControlsProps, ControlsState> {
                         </div>
 
                         <div className='side right'>
+                            <FloatScreen />
                             <FullScreen />
                         </div>
                         {/* <span
