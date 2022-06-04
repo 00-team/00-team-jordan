@@ -1,0 +1,58 @@
+@use '@00-team/utils' as *;
+
+$s: '.vito-player .desktop-layout .controls .page__3 .section__2 .side';
+
+#{$s} .volume {
+    background-color: darkcyan;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    pointer-events: all;
+
+    .dial-container {
+        transition: width 100ms ease-in-out, padding 50ms ease;
+        opacity: 0;
+
+        .dail-wrapper {
+            position: relative;
+            display: flex;
+            cursor: pointer;
+            align-items: center;
+        }
+
+        .dial {
+            overflow: hidden;
+            border-radius: 5px;
+            @include box(100%, 4px);
+            background: gold;
+
+            .fill {
+                @include box(0%, 100%);
+                background-color: red;
+            }
+        }
+
+        .dial-shadow {
+            position: absolute;
+            @include box(100%, 4px);
+            display: flex;
+            align-items: center;
+
+            .thumb {
+                $size: 10px;
+                @include box($size);
+                position: absolute;
+                background-color: darkturquoise;
+                border-radius: 40%;
+                margin-left: calc($size / -2);
+                left: 0%;
+            }
+        }
+    }
+
+    &.show .dial-container {
+        width: 140px;
+        padding: 0 10px;
+        opacity: 1;
+    }
+}

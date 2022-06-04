@@ -10,6 +10,8 @@ import Duration from 'components/timeline/Duration'
 import { Time, TimeType } from 'components/timeline/Time'
 import Timeline from 'components/timeline/Timeline'
 
+import Volume from './Volume'
+
 import './style/controls.scss'
 import './style/timeline.scss'
 import './style/toasts.scss'
@@ -56,8 +58,9 @@ class Controls extends BaseComponent<ControlsProps, ControlsState> {
                     </div>
 
                     <div className='section section__2'>
-                        <div className='side left'>
+                        <div className='side'>
                             <TogglePPL Loading={false} />
+                            <Volume />
                             <span
                                 className='time'
                                 onClick={() => this.ToggleTime()}
@@ -67,7 +70,7 @@ class Controls extends BaseComponent<ControlsProps, ControlsState> {
                             </span>
                         </div>
 
-                        <div className='side right'>
+                        <div className='side'>
                             <FloatScreen />
                             <FullScreen />
                         </div>
