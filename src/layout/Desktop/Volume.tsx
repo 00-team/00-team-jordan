@@ -1,50 +1,28 @@
 import BaseComponent from 'BaseComponent'
-import React, { ReactElement, ReactNode } from 'react'
-import { MouseEvent as RMouseEvent } from 'react'
+import React, { ReactElement } from 'react'
 
 import { C } from '@00-team/utils'
 
-import { Mute, Off, Low, Medium, High } from 'icons/volume'
+import Icon from 'common/Volume'
 
 import './style/volume.scss'
 
-type VolumeType = 'mute' | 'off' | 'low' | 'medium' | 'high'
-type DailElement = HTMLDivElement
-
-interface VolumeProps {}
+type MouseDownEvent = React.MouseEvent<HTMLDivElement, MouseEvent>
 
 interface VolumeState {
-    type: VolumeType
     show: boolean
     onHold: boolean
     volume: number
-    node?: DailElement
+    node?: HTMLDivElement
 }
 
-class Volume extends BaseComponent<VolumeProps, VolumeState> {
+class Volume extends BaseComponent<{}, VolumeState> {
     override state: VolumeState = {
-        type: 'high',
         show: false,
         onHold: false,
         volume: this.video.volume,
     }
 
-    private ToggleMute() {
-        this.video.muted = !this.video.muted
-    }
-
-    private UpdateType = this.UpdateTypePR.bind(this)
-    private UpdateTypePR() {
-        this.setState(() => {
-            if (this.video.muted) return { type: 'mute' }
-            if (this.video.volume === 0) return { type: 'off' }
-            if (this.video.volume < 0.4) return { type: 'low' }
-            if (this.video.volume < 0.6) return { type: 'medium' }
-            return { type: 'high' }
-        })
-    }
-
-    // Dial
     private UpdateVolume(clientX: number) {
         if (!this.state.node) return
 
@@ -55,10 +33,9 @@ class Volume extends BaseComponent<VolumeProps, VolumeState> {
 
         this.video.volume = volume
         this.setState({ volume: volume })
-        this.UpdateTypePR()
     }
 
-    private MouseDown(e: RMouseEvent<DailElement, MouseEvent>) {
+    private MouseDown(e: MouseDownEvent) {
         this.UpdateVolume(e.clientX)
         this.setState({ onHold: true })
 
@@ -80,15 +57,6 @@ class Volume extends BaseComponent<VolumeProps, VolumeState> {
         this.setState({ onHold: false })
     }
 
-    override componentDidMount() {
-        this.UpdateTypePR()
-        this.video.addEventListener('volumechange', this.UpdateType)
-    }
-
-    override componentWillUnmount() {
-        this.video.removeEventListener('volumechange', this.UpdateType)
-    }
-
     override render(): ReactElement {
         return (
             <div
@@ -98,9 +66,7 @@ class Volume extends BaseComponent<VolumeProps, VolumeState> {
                 onMouseEnter={() => this.setState({ show: true })}
                 onMouseLeave={() => this.setState({ show: false })}
             >
-                <button onClick={() => this.ToggleMute()}>
-                    {Icon[this.state.type]}
-                </button>
+                <Icon />
 
                 <div className='dial-container'>
                     <div
@@ -126,18 +92,6 @@ class Volume extends BaseComponent<VolumeProps, VolumeState> {
             </div>
         )
     }
-}
-
-type TIcon = {
-    [key in VolumeType]: ReactNode
-}
-
-const Icon: TIcon = {
-    mute: <Mute />,
-    off: <Off />,
-    low: <Low />,
-    medium: <Medium />,
-    high: <High />,
 }
 
 export { Volume }
