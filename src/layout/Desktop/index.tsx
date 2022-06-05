@@ -31,20 +31,26 @@ class Desktop extends BaseComponent<{}, DesktopState> {
     private UpdateActivity = this.UpdateActivityPR.bind(this)
     private UpdateActivityPR() {
         LastActivity = now()
-        this.UpdateHide(false)
+        if (this.state.hide) this.UpdateHide(false)
     }
 
     override componentDidMount() {
         document.addEventListener('mousemove', this.UpdateActivity)
+        document.addEventListener('keypress', this.UpdateActivity)
+        LastActivity = now()
 
-        let clock = setInterval(() => {
-            if (now() - LastActivity > 3_000) this.UpdateHide()
+        const clock = setInterval(() => {
+            if (!this.state.hide)
+                if (now() - LastActivity > 3_000) this.UpdateHide()
         }, 500)
+
         this.setState({ clock: clock })
     }
 
     override componentWillUnmount() {
         document.removeEventListener('mousemove', this.UpdateActivity)
+        document.removeEventListener('keypress', this.UpdateActivity)
+
         if (this.state.clock) clearInterval(this.state.clock)
     }
 

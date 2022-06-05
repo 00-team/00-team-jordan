@@ -29,7 +29,7 @@ const DefaultSpeeds = [
 
 class Settings extends BaseComponent<SettingsProps, SettingsState> {
     override state: SettingsState = {
-        showMenu: true,
+        showMenu: false,
         loop: this.video.loop,
     }
 
