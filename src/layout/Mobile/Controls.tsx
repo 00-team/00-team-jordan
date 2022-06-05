@@ -3,6 +3,7 @@ import React, { ReactElement } from 'react'
 
 import Toast from 'common/Toast'
 import TogglePPL from 'common/TogglePPL'
+import Volume from 'common/Volume'
 import FullScreen from 'components/actions/FullScreen'
 import Settings from 'components/settings'
 import Duration from 'components/timeline/Duration'
@@ -48,16 +49,22 @@ class Controls extends BaseComponent<ControlsProps, ControlsState> {
                 </div>
                 <div className='page page__3'>
                     <div className='section section__1'>
-                        <span
-                            className='time'
-                            onClick={() => this.ToggleTime()}
-                        >
-                            <Time type={this.state.timetype} /> / <Duration />
-                        </span>
+                        <div className='side'>
+                            <span
+                                className='time'
+                                onClick={() => this.ToggleTime()}
+                            >
+                                <Time type={this.state.timetype} /> /{' '}
+                                <Duration />
+                            </span>
+                        </div>
 
                         <Toast />
 
-                        <FullScreen />
+                        <div className='side'>
+                            <Volume />
+                            <FullScreen />
+                        </div>
                     </div>
                     <div className='section section__2'>
                         <Timeline />

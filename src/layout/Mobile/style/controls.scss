@@ -129,11 +129,17 @@
                 @include box(100%, fit-content);
 
                 &__1 {
+                    position: relative;
                     padding: 0 2%;
                     display: flex;
                     align-items: center;
                     justify-content: space-between;
-                    position: relative;
+
+                    .side {
+                        display: flex;
+                        align-items: center;
+                        gap: 10px;
+                    }
 
                     .time {
                         font-size: clamp(0.7rem, 1vw + 1vh + 0.2rem, 1.7rem);

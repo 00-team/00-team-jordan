@@ -1,4 +1,6 @@
-.vito-player .mobile-layout .controls .page__3 .section__1 .toasts-container {
+$s: '.vito-player .mobile-layout .controls .page__3 .section__1';
+
+#{$s} .toasts-container {
     pointer-events: none;
     touch-action: none;
 

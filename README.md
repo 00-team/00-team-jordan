@@ -24,7 +24,7 @@ const App = () => (
 
 ## Todos
 
-* [ ] mute button for mobile
+* [x] mute button for mobile
 * [ ] Better Player Options
 * [ ] Checking and Improving the Player Preformance
 * [ ] Better Style
