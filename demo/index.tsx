@@ -1,4 +1,4 @@
-import React, { FC, StrictMode } from 'react'
+import React, { FC, StrictMode, useState } from 'react'
 import { createRoot } from 'react-dom/client'
 
 import './style.scss'
@@ -39,12 +39,15 @@ const source: Source = [
 ]
 
 const App: FC = () => {
+    const [mount, setMount] = useState(true)
+
     return (
         <StrictMode>
             <div className='app'>
                 <div className='app-video'>
-                    <Player source={source} />
+                    {mount && <Player source={source} />}
                 </div>
+                <button onClick={() => setMount(s => !s)}>Mount/Umount</button>
             </div>
         </StrictMode>
     )
