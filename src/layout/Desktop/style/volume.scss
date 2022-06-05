@@ -7,6 +7,7 @@ $s: '.vito-player .desktop-layout .controls .page__3 .section__2 .side';
     display: flex;
     align-items: center;
     justify-content: space-between;
+    pointer-events: all;
 
     .dial-container {
         transition: width 100ms ease-in-out, padding 50ms ease;

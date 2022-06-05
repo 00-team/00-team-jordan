@@ -16,6 +16,14 @@ class Desktop extends BaseComponent<DesktopProps, DesktopState> {
         return (
             <div className='desktop-layout'>
                 <Controls />
+                <div
+                    className='toggle'
+                    onClick={() => {
+                        if (this.video.paused) this.video.play()
+                        else this.video.pause()
+                    }}
+                    onContextMenu={e => e.preventDefault()}
+                />
             </div>
         )
     }

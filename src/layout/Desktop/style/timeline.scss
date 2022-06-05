@@ -8,6 +8,7 @@ $s: '.vito-player .desktop-layout .controls .page__3 .section__1';
     width: 100%;
     position: relative;
     background-color: red;
+    pointer-events: all;
 
     .timeline {
         overflow: hidden;

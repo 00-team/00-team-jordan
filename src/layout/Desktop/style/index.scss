@@ -2,4 +2,10 @@
 
 .vito-player .desktop-layout {
     @include box(100%);
+
+    .toggle {
+        position: absolute;
+        z-index: 1;
+        @include box(100%);
+    }
 }

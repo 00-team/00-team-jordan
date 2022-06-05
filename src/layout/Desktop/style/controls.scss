@@ -3,6 +3,7 @@
 .vito-player .desktop-layout .controls {
     position: absolute;
     z-index: 2;
+    pointer-events: none;
 
     @include box(100%);
     display: flex;
@@ -45,7 +46,7 @@
                     height: 30px;
                     gap: clamp(7px, 0.7vw + 0.7vh + 1px, 15px);
                     align-items: center;
-
+                    pointer-events: all;
                     flex-shrink: 0;
 
                     button,
@@ -100,19 +101,8 @@
             }
         }
         &__2 {
-            height: 40%;
-            @include f-center;
-            column-gap: 5%;
-
-            button {
-                height: calc(2vh + 2vw + 10px + 15%);
-                max-height: 70%;
-            }
-
-            .loading {
-                height: calc(2vh + 2vw + 10px + 15%);
-                max-height: 70%;
-            }
+            height: 44%;
+            flex-shrink: 0;
         }
         &__3 {
             display: flex;
@@ -130,12 +120,14 @@
                 }
 
                 &__1 {
+                    pointer-events: all;
                     display: flex;
                     align-items: center;
                     padding: 4px 8px;
                 }
 
                 &__2 {
+                    pointer-events: all;
                     height: 40px;
                     display: flex;
                     justify-content: space-between;
@@ -145,6 +137,7 @@
                     .time {
                         font-size: clamp(0.7rem, 1vw + 1vh + 0.2rem, 1.3rem);
                         font-family: sans-serif;
+                        cursor: pointer;
                     }
 
                     button {
@@ -166,6 +159,7 @@
             background-color: transparent;
             border: none;
             display: flex;
+            pointer-events: all;
         }
     }
 }

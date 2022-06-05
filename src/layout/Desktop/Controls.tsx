@@ -46,9 +46,7 @@ class Controls extends BaseComponent<ControlsProps, ControlsState> {
                         </div>
                     </div>
                 </div>
-                <div className='page page__2'>
-                    <TogglePPL />
-                </div>
+                <div className='page page__2'></div>
                 <div className='page page__3'>
                     <div className='section section__0'>
                         <Toast />
@@ -74,16 +72,6 @@ class Controls extends BaseComponent<ControlsProps, ControlsState> {
                             <FloatScreen />
                             <FullScreen />
                         </div>
-                        {/* <span
-                            className='time'
-                            onClick={() => this.ToggleTime()}
-                        >
-                            <Time type={this.state.timetype} /> / <Duration />
-                        </span>
-
-                        <Toast />
-
-                        <FullScreen /> */}
                     </div>
                 </div>
             </div>
