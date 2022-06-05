@@ -2,6 +2,8 @@
 
 npm package - @00-team/vito
 
+vito is a react video player package!
+
 ## Usage
 
 `npm i @00-team/vito`
@@ -23,3 +25,11 @@ const App = () => (
 ## Todos
 
 * [ ] mute button for mobile
+* [ ] Better Player Options
+* [ ] Checking and Improving the Player Preformance
+* [ ] Better Style
+* [ ] Basic Animations
+* [ ] Keyword Shortcuts
+* [ ] More Toasts for Desktop
+* [ ] Touch volume control for mobile
+* [ ] Adding CC (Closed Captioning)
