@@ -3,7 +3,6 @@
 .vito-player .desktop-layout .controls {
     position: absolute;
     z-index: 2;
-    pointer-events: none;
 
     @include box(100%);
     display: flex;
@@ -41,7 +40,6 @@
                 }
 
                 .buttons {
-                    pointer-events: all;
                     width: max-content;
                     display: flex;
                     height: 30px;
@@ -147,7 +145,6 @@
                     .time {
                         font-size: clamp(0.7rem, 1vw + 1vh + 0.2rem, 1.3rem);
                         font-family: sans-serif;
-                        pointer-events: all;
                     }
 
                     button {
@@ -169,7 +166,6 @@
             background-color: transparent;
             border: none;
             display: flex;
-            pointer-events: all;
         }
     }
 }
