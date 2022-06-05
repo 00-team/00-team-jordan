@@ -1,4 +1,4 @@
-import React, { FC } from 'react'
+import React, { FC, StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 
 import './style.scss'
@@ -40,11 +40,13 @@ const source: Source = [
 
 const App: FC = () => {
     return (
-        <div className='app'>
-            <div className='app-video'>
-                <Player source={source} />
+        <StrictMode>
+            <div className='app'>
+                <div className='app-video'>
+                    <Player source={source} />
+                </div>
             </div>
-        </div>
+        </StrictMode>
     )
 }
 
