@@ -1,3 +1,5 @@
+import { Component, FC } from 'react'
+
 interface BasePlayerModel {
     video?: HTMLVideoElement
     vito?: HTMLDivElement
@@ -33,6 +35,7 @@ export interface Options {
 enum OptionType {
     Menu,
     Action,
+    Element,
 }
 
 interface MenuOption {
@@ -47,6 +50,19 @@ interface ActionOption {
     action: () => void
 }
 
-type Menu = (MenuOption | ActionOption)[]
+interface ElementProps {
+    parentMenu: Menu[]
+}
+export { ElementProps }
 
-export { OptionType, MenuOption, ActionOption, Menu }
+class ElementMenu extends Component<ElementProps> {}
+
+interface ElementOption {
+    type: OptionType.Element
+    element: typeof ElementMenu | FC<ElementProps>
+}
+
+type MenuItem = MenuOption | ActionOption | ElementOption
+type Menu = MenuItem[]
+
+export { OptionType, MenuOption, ActionOption, Menu, MenuItem }

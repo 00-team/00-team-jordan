@@ -1,6 +1,6 @@
-import React, { PureComponent, ReactElement } from 'react'
+import React, { Fragment, PureComponent, ReactElement } from 'react'
 
-import { Menu as MenuType, OptionType } from '../../types'
+import { Menu as MenuType, OptionType, MenuItem } from '../../types'
 
 interface MenuProps {
     menu: MenuType
@@ -18,6 +18,43 @@ class Menu extends PureComponent<MenuProps, MenuState> {
         parentMenu: [],
         curentMenu: this.props.menu,
         BackButton: false,
+    }
+
+    private RenderOption(opt: MenuItem, index: number): ReactElement {
+        switch (opt.type) {
+            case OptionType.Element:
+                return (
+                    <opt.element
+                        key={index}
+                        parentMenu={this.state.parentMenu}
+                    />
+                )
+
+            case OptionType.Menu:
+                return (
+                    <li
+                        key={index}
+                        onClick={() =>
+                            this.setState(s => ({
+                                curentMenu: opt.menu,
+                                parentMenu: [...s.parentMenu, s.curentMenu],
+                                BackButton: true,
+                            }))
+                        }
+                    >
+                        {opt.label}
+                    </li>
+                )
+            case OptionType.Action:
+                return (
+                    <li key={index} onClick={() => opt.action()}>
+                        {opt.label}
+                    </li>
+                )
+
+            default:
+                return <Fragment key={index} />
+        }
     }
 
     override render(): ReactElement {
@@ -44,29 +81,10 @@ class Menu extends PureComponent<MenuProps, MenuState> {
                         &#60; Back
                     </button>
                 )}
-                {this.state.curentMenu.map((opt, index) => (
-                    <li
-                        className={
-                            'menu-item' +
-                            (opt.type === OptionType.Menu ? ' menu' : ' action')
-                        }
-                        key={index}
-                        onClick={() =>
-                            opt.type === OptionType.Action
-                                ? opt.action()
-                                : this.setState(s => ({
-                                      curentMenu: opt.menu,
-                                      parentMenu: [
-                                          ...s.parentMenu,
-                                          s.curentMenu,
-                                      ],
-                                      BackButton: true,
-                                  }))
-                        }
-                    >
-                        {opt.label}
-                    </li>
-                ))}
+
+                {this.state.curentMenu.map((opt, index) =>
+                    this.RenderOption(opt, index)
+                )}
             </>
         )
     }

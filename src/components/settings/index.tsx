@@ -3,7 +3,8 @@ import React, { ReactElement } from 'react'
 
 import Icon from 'icons/settings'
 
-import { Menu as MenuType, OptionType, SourceObject } from '../../types'
+import { Menu as MenuType, OptionType } from '../../types'
+import { ElementProps, SourceObject } from '../../types'
 
 import Menu from './Menu'
 
@@ -11,6 +12,7 @@ interface SettingsProps {}
 
 interface SettingsState {
     showMenu: boolean
+    loop: boolean
     container?: Node
 }
 
@@ -27,7 +29,8 @@ const DefaultSpeeds = [
 
 class Settings extends BaseComponent<SettingsProps, SettingsState> {
     override state: SettingsState = {
-        showMenu: false,
+        showMenu: true,
+        loop: this.video.loop,
     }
 
     private ChangeQuality(source: SourceObject) {
@@ -64,6 +67,10 @@ class Settings extends BaseComponent<SettingsProps, SettingsState> {
                     type: OptionType.Action,
                     action: () => this.ChangeQuality(s),
                 })),
+            },
+            {
+                type: OptionType.Element,
+                element: LoopElement,
             },
         ]
 
@@ -119,6 +126,25 @@ class Settings extends BaseComponent<SettingsProps, SettingsState> {
                     </ul>
                 )}
             </div>
+        )
+    }
+}
+
+class LoopElement extends BaseComponent<ElementProps> {
+    override state = {
+        loop: this.video.loop,
+    }
+
+    override render(): ReactElement {
+        return (
+            <li
+                onClick={() => {
+                    this.video.loop = !this.video.loop
+                    this.setState({ loop: this.video.loop })
+                }}
+            >
+                Loop: {this.state.loop ? 'On' : 'Off'}
+            </li>
         )
     }
 }
