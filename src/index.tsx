@@ -52,6 +52,7 @@ class Player extends PureComponent<PlayerProps, PlayerState> {
                     // debug
                     muted
                     // ----
+                    onContextMenu={e => e.preventDefault()}
                     className='main-video'
                     src={this.state.source.url}
                     ref={node => node && this.setState({ video: node })}
