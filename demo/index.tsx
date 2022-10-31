@@ -5,17 +5,13 @@ import './style.scss'
 
 import duck_144p from './videos/144p.mp4'
 import duck_240p from './videos/240p.mp4'
-import duck_360p from './videos/360p.mp4'
+import duck_360p from './videos/360p.nosound.mp4'
 import duck_480p from './videos/480p.mp4'
 import duck_720p from './videos/original.mp4'
 
-import { Player, Source } from '../lib/'
+import { Player, Source } from '../lib'
 
 const source: Source = [
-    // {
-    //     label: 'Shrek',
-    //     url: 'https://cdn.discordapp.com/attachments/837976157609656323/842785794485780520/Shrek_1.mp4',
-    // },
     {
         label: '144p',
         url: duck_144p,
@@ -25,7 +21,7 @@ const source: Source = [
         url: duck_240p,
     },
     {
-        label: '360p',
+        label: '360p No Sound',
         url: duck_360p,
     },
     {

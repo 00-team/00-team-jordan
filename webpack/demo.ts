@@ -1,14 +1,12 @@
+// plugins
+import HtmlPlugin from 'html-webpack-plugin'
 import { Configuration as MainConf } from 'webpack'
 import { Configuration as DevConf } from 'webpack-dev-server'
 
 import Base from './base'
-
 // configs
-import { DEMO_DIR, resolve } from './config/path'
+import { DEMO_DIR } from './config/path'
 import { DevStyle } from './config/style'
-
-// plugins
-import HtmlPG from 'html-webpack-plugin'
 
 interface Configuration extends MainConf {
     devServer: DevConf
@@ -23,14 +21,14 @@ const Config: Configuration = {
             ...Base.module!.rules!,
             DevStyle,
             {
-                test: /\.(mp4|ico)$/i,
-                use: 'file-loader',
+                test: /\.mp4/,
+                type: 'asset/resource',
             },
         ],
     },
     plugins: [
-        new HtmlPG({
-            template: resolve(DEMO_DIR, 'template.html'),
+        new HtmlPlugin({
+            templateContent: '<div id="root" class="root" />',
         }),
     ],
     devServer: {
@@ -39,7 +37,7 @@ const Config: Configuration = {
         historyApiFallback: true,
         client: {
             logging: 'none',
-            reconnect: 7,
+            reconnect: 2,
         },
     },
 }

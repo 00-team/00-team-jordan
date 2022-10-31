@@ -1,7 +1,6 @@
 import React, { PureComponent, ReactElement } from 'react'
 
-import { BasePlayerModel } from './types'
-import { Source, Options } from './types'
+import { BasePlayerModel, Options, Source } from './types'
 
 import RootLayout from './layout/Root'
 
@@ -43,6 +42,7 @@ class Player extends PureComponent<PlayerProps, PlayerState> {
 
     override render(): ReactElement {
         if (!this.state.source) return <></>
+
         return (
             <div
                 className='vito-player'
@@ -56,7 +56,9 @@ class Player extends PureComponent<PlayerProps, PlayerState> {
                     className='main-video'
                     src={this.state.source.url}
                     ref={node => node && this.setState({ video: node })}
-                />
+                >
+                    {/* <source /> */}
+                </video>
 
                 <RootLayout {...this.state} setToast={this.setToast} />
             </div>
